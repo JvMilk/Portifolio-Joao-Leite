@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - João Vitor Leite Silva</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --dark-bg: #0f172a;
+            --glass-bg: rgba(15, 23, 42, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-main: #ffffff;
+            --text-muted: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(58, 123, 213, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 210, 255, 0.15), transparent 25%);
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0.1;
+            filter: blur(40px);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .c1 {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .c2 {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        .c3 {
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, 50px);
+            }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            animation: fadeIn 1s ease-out;
+        }
+
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 40px;
+        }
+
+        .profile-img-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .profile-info h2 {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .profile-bio {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--text-main);
+        }
+
+        .section-title i {
+            margin-right: 15px;
+            font-size: 1.8rem;
+            color: var(--primary);
+            background: rgba(0, 210, 255, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card-subtitle {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .card-logo {
+            max-width: 120px;
+            max-height: 90px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+
+        .btn-site {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-site:hover {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+        }
+
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-img-container {
+                margin-bottom: 20px;
+            }
+
+            .profile-info {
+                max-width: 100%;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="background">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container">
+        <div class="glass-panel">
+
+
+            <header>
+                <div class="profile-img-container">
+                    <img src="jv.png" alt="João Vitor Leite Silva" class="profile-img">
+                </div>
+                <div class="profile-info">
+                    <h1>João Vitor Leite Silva</h1>
+                    <h2>&lt;Estudante de Sistemas de Informação /&gt;</h2>
+                    <p class="profile-bio">
+                        Natural de Patos de Minas – MG, cresci em Rio Paranaíba – MG.
+                        Tenho forte interesse em oportunidades de estágio na área de TI.
+                        Busco ambientes que permitam desenvolver habilidades técnicas,
+                        adquirir experiência prática e evoluir profissionalmente na tecnologia.
+                    </p>
+                </div>
+            </header>
+
+
+            <section id="experiencia">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Estágio Analista de TI</div>
+                            <div class="card-subtitle">TSMIT Tecnologia e Inovação</div>
+                        </div>
+                        <img src="tsmit.png" alt="TSMIT Logo" class="card-logo">
+                    </div>
+                    <p>
+                        Atuação de 6 meses prestando suporte técnico (helpdesk) para empresas de diversos segmentos.
+                    </p>
+                    <p>
+                        Desenvolvimento de habilidades em sistemas operacionais, Microsoft 365, análise de logs de
+                        eventos e infraestrutura de redes.
+                    </p>
+                    <a href="https://tsmit.com.br/" target="_blank" class="btn-site">
+                        <i class="fas fa-external-link-alt"></i> Visitar Site da Empresa
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Analista de TI Nvl. 1</div>
+                            <div class="card-subtitle">TSMIT Tecnologia e Inovação</div>
+                        </div>
+                        <img src="tsmit.png" alt="TSMIT Logo" class="card-logo">
+                    </div>
+                    <p>
+                        Efetivado após estágio, desenvolvi habilidades em administração de servidores, manutenção de
+                        hardware e configuração de equipamentos de rede (Starlink, UniFi, roteadores Huawei).
+                    </p>
+                    <p>
+                        Atuei com Windows Server, Linux e gestão de infraestruturas de redes corporativas, garantindo a
+                        estabilidade dos ambientes tecnológicos.
+                    </p>
+                    <a href="https://tsmit.com.br/" target="_blank" class="btn-site">
+                        <i class="fas fa-external-link-alt"></i> Visitar Site da Empresa
+                    </a>
+                </div>
+            </section>
+
+            <section id="educacao">
+                <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h3>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Sistemas de Informação</div>
+                            <div class="card-subtitle">UNIPAM (Atualmente)</div>
+                        </div>
+                        <img src="unipam.png" alt="Unipam Logo" class="card-logo">
+                    </div>
+                    <p>
+                        Desenvolvimento de conhecimentos em desenvolvimento web, hospedagem de sites e utilização do
+                        GitHub para controle de versão e gerenciamento de projetos.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Sistemas de Informação</div>
+                            <div class="card-subtitle">UFV-Campus Rio Paranaíba (4 períodos)</div>
+                        </div>
+                        <img src="ufv.png" alt="UFV Logo" class="card-logo">
+                    </div>
+                    <p>
+                        Desenvolvimento de experiências em lógica de programação, desenvolvimento na linguagem C e
+                        engenharia de software.
+                    </p>
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2026 João Vitor Leite Silva. <span </p>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
